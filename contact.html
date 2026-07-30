@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Secrétariat | Club Bella Vita ASBL - Waterloo</title>
+    <style>
+        /* --- DESIGN SYSTEM ACCESSIBLE & MODERNE --- */
+        :root {
+            --primary: #0b5369;       /* Bleu canard Bella Vita */
+            --primary-dark: #073847;
+            --secondary: #d96b43;     /* Terracotta pour inciter à l'action */
+            --secondary-hover: #bd5530;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --accent-soft: #eef7f9;
+            --border-color: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(11, 83, 105, 0.08);
+            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        /* --- BANDEAU SUPÉRIEUR --- */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: underline;
+            margin: 0 0.5rem;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            background-color: var(--accent-soft);
+            color: var(--primary);
+        }
+
+        .btn-call-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.7rem 1.3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- PAGE BANNER --- */
+        .page-banner {
+            background: linear-gradient(rgba(11, 83, 105, 0.88), rgba(7, 56, 71, 0.9)), 
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            color: white;
+            padding: 4.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-banner p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        /* --- CARTES ET BLOCS --- */
+        .info-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .info-card h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.15rem;
+        }
+
+        .contact-icon {
+            font-size: 1.4rem;
+            background: var(--accent-soft);
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        /* --- BLOC NEWS MENSUEL (Marine Piscaglia) --- */
+        .news-box {
+            background: linear-gradient(135deg, #eef7f9 0%, #ffffff 100%);
+            border-left: 6px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-top: 1.5rem;
+        }
+
+        .news-box h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-author {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+
+        /* --- FORMULAIRE DE CONTACT --- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11, 83, 105, 0.15);
+        }
+
+        .btn-submit {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-hover);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-container { flex-direction: column; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRE DE CONTACT SUPÉRIEURE -->
+    <div class="top-bar">
+        📍 Permanence téléphonique (10h-12h) : <a href="tel:023185812">02 318 58 12</a> | 📧 <a href="mailto:info@clubbellavita.be">info@clubbellavita.be</a>
+    </div>
+
+    <!-- HEADER PRINCIPAL -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="https://static.wixstatic.com/media/cbb3cc_dc3607cddb5c41e08a6626af2a000b97~mv2.png/v1/fill/w_314,h_232,al_c,q_85/CBV_logo.png" alt="Logo Club Bella Vita" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="presentation.html">Présentation</a></li>
+                <li><a href="activites.html">Nos Activités</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <a href="tel:023185812" class="btn-call-header"> Appeler</a>
+        </div>
+    </header>
+
+    <!-- BANNIÈRE DE LA PAGE -->
+    <section class="page-banner">
+        <h1>Contact & Permanence</h1>
+        <p>Notre équipe est à votre disposition pour toute information, inscription ou question sur le Club Bella Vita.</p>
+    </section>
+
+    <!-- SECTION CONTACT & INFOS -->
+    <section>
+        <div class="grid-2">
+            
+            <!-- BLOC INFORMATIONS PRATIQUES -->
+            <div>
+                <div class="info-card">
+                    <h2>📍 Informations de Contact</h2>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">🏢</div>
+                        <div>
+                            <strong>Club Bella Vita ASBL</strong><br>
+                            Allée des Artistes 4 Bte 1<br>
+                            1410 Waterloo, Belgique
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Téléphone Secrétariat :</strong><br>
+                            <a href="tel:023185812" style="color:var(--primary); font-weight:bold;">02 318 58 12</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Adresse E-mail :</strong><br>
+                            <a href="mailto:info@clubbellavita.be" style="color:var(--primary); font-weight:bold;">info@clubbellavita.be</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Permanence d'accueil :</strong><br>
+                            Du lundi au samedi, de 10h00 à 12h00
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENCADRÉ LE NEWS MENSUEL (Marine Piscaglia) -->
+                <div class="news-box">
+                    <h3>📰 Le News Mensuel du Quartier</h3>
+                    <p>Chaque mois (hors période estivale), retrouvez <strong>Le News</strong> directement dans votre boîte aux lettres ! Un bulletin complet qui rassemble le programme des activités à venir, les événements du quartier ainsi que des sujets variés et passionnants.</p>
+                    <div class="news-author">✍️ Journal rédigé et préparé avec soin par Marine Piscaglia</div>
+                </div>
+            </div>
+
+            <!-- FORMULAIRE DE CONTACT -->
+            <div class="info-card">
+                <h2>✉️ Nous envoyer un message</h2>
+                <form class="contact-form" action="#" method="POST" onsubmit="alert('Merci ! Votre message a bien été envoyé au secrétariat du Club Bella Vita.'); return false;">
+                    
+                    <div class="form-group">
+                        <label for="name">Nom et Prénom *</label>
+                        <input type="text" id="name" required placeholder="Ex: Jean Dupont">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Votre Adresse E-mail *</label>
+                        <input type="email" id="email" required placeholder="Ex: jean.dupont@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Numéro de Téléphone</label>
+                        <input type="tel" id="phone" placeholder="Ex: 0470 12 34 56">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet de votre demande</label>
+                        <input type="text" id="subject" placeholder="Ex: Renseignements Aquagym, Inscription...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Votre Message *</label>
+                        <textarea id="message" rows="5" required placeholder="Rédigez votre message ici..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Envoyer le message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Club Bella Vita ASBL</strong> — Allée des Artistes 4 Bte 1, 1410 Waterloo</p>
+        <p style="margin-top:0.5rem; color:#94a3b8;">Permanence du lundi au samedi de 10h à 12h | Tél : 02 318 58 12</p>
+        <p style="margin-top:1.5rem; font-size:0.9rem; color:#64748b;">&copy; 2026 Club Bella Vita. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
