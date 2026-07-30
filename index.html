@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Bella Vita | Sport & Bien-être à Waterloo</title>
+    <style>
+        /* --- VARIABLES & DESIGN SYSTEM --- */
+        :root {
+            --primary-color: #0d5c75;    /* Bleu canard/océan profond (très lisible) */
+            --secondary-color: #e07a5f;  /* Terracotta chaleureux pour les boutons */
+            --bg-light: #f8f9fa;         /* Fond très doux pour éviter l'éblouissement */
+            --text-dark: #1b263b;        /* Texte presque noir pour un contraste maximal */
+            --card-bg: #ffffff;
+            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            font-size: 1.15rem; /* Taille de police légèrement augmentée pour la lisibilité */
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Accessibility Focus */
+        a, button {
+            touch-action: manipulation;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-tag {
+            font-size: 0.9rem;
+            background: #eef7f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .header-phone {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(13, 92, 117, 0.85), rgba(13, 92, 117, 0.85)), 
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: #c9654a;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTIONS GÉNÉRALES --- */
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        /* --- ACTIVITÉS (GRID) --- */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e1e4e8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-text {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #eef7f9;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: auto;
+            width: fit-content;
+        }
+
+        /* --- POINTS FORTS / ACCESSIBILITÉ --- */
+        .features-bg {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-icon {
+            background: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* --- CONTACT & INFOS --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e1e4e8;
+        }
+
+        .info-box h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--text-dark);
+        }
+
+        form .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+            font-size: 1rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero p {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                Club Bella Vita
+                <span class="logo-tag">Waterloo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#activites">Nos Activités</a></li>
+                <li><a href="#atouts">Le Club</a></li>
+                <li><a href="#contact">Contact & Horaires</a></li>
+            </ul>
+            <a href="tel:+3220000000" class="header-phone">📞 02 000 00 00</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sport, Santé & Convivialité à Waterloo</h1>
+            <p>Un espace moderne et bienveillant dédié à la natation, la gymnastique et au bien-être pour tous les âges.</p>
+            <a href="#contact" class="btn-cta">Venir nous rendre visite</a>
+        </div>
+    </section>
+
+    <!-- ACTIVITÉS -->
+    <section id="activites">
+        <h2 class="section-title">Nos Activités Principales</h2>
+        <p class="section-subtitle">Des cours encadrés par des professionnels à votre rythme</p>
+
+        <div class="activities-grid">
+            
+            <div class="activity-card">
+                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80" alt="Espace Piscine et Natation">
+                <div class="activity-content">
+                    <h3 class="activity-title">Espace Aquatique</h3>
+                    <p class="activity-text">Natation libre, aquagym douce et cours de remise en forme aquatique dans une eau chauffée à température idéale.</p>
+                    <span class="badge">Piscine chauffée</span>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Cours de Gym douce">
+                <div class="activity-content">
+                    <h3 class="activity-title">Gymnastique & Entretien</h3>
+                    <p class="activity-text">Exercices doux d'assouplissement, d'équilibre et de renforcement musculaire pour préserver sa mobilité au quotidien.</p>
+                    <span class="badge">Tous niveaux</span>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Yoga et Relaxation">
+                <div class="activity-content">
+                    <h3 class="activity-title">Yoga & Pilates</h3>
+                    <p class="activity-text">Travail sur la posture, la respiration et la gestion du stress dans un environnement calme et accueillant.</p>
+                    <span class="badge">Bien-être & Confort</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ATOUTS & ACCESSIBILITÉ -->
+    <section id="atouts" class="features-bg">
+        <h2 class="section-title">Pourquoi choisir le Club Bella Vita ?</h2>
+        <p class="section-subtitle">Un cadre pensé pour votre confort et votre sécurité</p>
+
+        <ul class="features-list">
+            <li class="feature-item">
+                <span class="feature-icon">✓</span>
+                <div><strong>Coachs diplômés :</strong> Un encadrement attentif et à l'écoute de vos besoins physiques.</div>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">✓</span>
+                <div><strong>Infrastructures adaptées :</strong> Accès facile, ascenseurs et vestiaires spacieux PMR.</div>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">✓</span>
+                <div><strong>Ambiance conviviale :</strong> Un espace cafétéria chaleureux pour échanger après l'effort.</div>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">✓</span>
+                <div><strong>Accès facile :</strong> Parking réservé sur place et proximité des transports de Waterloo.</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- CONTACT & ACCÈS -->
+    <section id="contact">
+        <h2 class="section-title">Nous Contacter & Horaires</h2>
+        <p class="section-subtitle">Posez-nous vos questions ou passez nous voir directement</p>
+
+        <div class="contact-container">
+            <div class="info-box">
+                <h3>Informations Pratiques</h3>
+                <div class="info-item">
+                    <strong>Adresse :</strong>
+                    Allée Bella Vita, 1410 Waterloo
+                </div>
+                <div class="info-item">
+                    <strong>Téléphone :</strong>
+                    02 000 00 00
+                </div>
+                <div class="info-item">
+                    <strong>Horaires d'ouverture :</strong>
+                    Du Lundi au Vendredi : 8h30 - 19h00<br>
+                    Samedi : 9h00 - 17h00<br>
+                    Dimanche : Fermé
+                </div>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('Merci pour votre message ! Nous vous recontacterons sous 24h.');">
+                <div class="form-group">
+                    <label for="nom">Votre Nom & Prénom</label>
+                    <input type="text" id="nom" required placeholder="Ex: Marie Dupont">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de Téléphone</label>
+                    <input type="tel" id="phone" required placeholder="Ex: 0470 12 34 56">
+                </div>
+                <div class="form-group">
+                    <label for="message">Votre Message ou Question</label>
+                    <textarea id="message" rows="4" placeholder="Ex: Je souhaite me renseigner sur les cours d'aquagym..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Club Bella Vita - Waterloo. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
