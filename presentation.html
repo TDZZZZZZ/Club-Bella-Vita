@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation & Histoire | Club Bella Vita ASBL - Waterloo</title>
+    <style>
+        /* --- DESIGN SYSTEM ACCESSIBLE & MODERNE --- */
+        :root {
+            --primary: #0b5369;       /* Bleu canard Bella Vita */
+            --primary-dark: #073847;
+            --secondary: #d96b43;     /* Terracotta pour inciter à l'action */
+            --secondary-hover: #bd5530;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --accent-soft: #eef7f9;
+            --border-color: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(11, 83, 105, 0.08);
+            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        /* --- BANDEAU SUPÉRIEUR --- */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: underline;
+            margin: 0 0.5rem;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            background-color: var(--accent-soft);
+            color: var(--primary);
+        }
+
+        .btn-call-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.7rem 1.3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- PAGE BANNER --- */
+        .page-banner {
+            background: linear-gradient(rgba(11, 83, 105, 0.88), rgba(7, 56, 71, 0.9)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            color: white;
+            padding: 4.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-banner p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+        }
+
+        /* --- TIMELINE HISTORIQUE --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            padding-left: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.85rem;
+            top: 0.2rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-year {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- BLOCS CONCEPT & ÉCOLOGIE --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            background: var(--accent-soft);
+            color: var(--primary);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .info-card h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-container { flex-direction: column; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRE DE CONTACT SUPÉRIEURE -->
+    <div class="top-bar">
+        📍 Permanence téléphonique (10h-12h) : <a href="tel:023185812">02 318 58 12</a> | 📧 <a href="mailto:info@clubbellavita.be">info@clubbellavita.be</a>
+    </div>
+
+    <!-- HEADER PRINCIPAL -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="https://static.wixstatic.com/media/cbb3cc_dc3607cddb5c41e08a6626af2a000b97~mv2.png/v1/fill/w_314,h_232,al_c,q_85/CBV_logo.png" alt="Logo Club Bella Vita" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="presentation.html" class="active">Présentation</a></li>
+                <li><a href="activites.html">Nos Activités</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="tel:023185812" class="btn-call-header"> Appeler</a>
+        </div>
+    </header>
+
+    <!-- BANNIÈRE DE LA PAGE -->
+    <section class="page-banner">
+        <h1>Découvrir le Club Bella Vita</h1>
+        <p>Un quartier unique au cœur d'un parc de 15 hectares à Waterloo, unissant patrimoine, écologie et solidarité intergénérationnelle.</p>
+    </section>
+
+    <!-- SECTION HISTORIQUE DU SITE -->
+    <section>
+        <h2 class="section-title">L'Histoire du Domaine Bella Vita</h2>
+        <p class="section-subtitle">Plus d'un siècle d'histoire au service de l'humain et de la nature</p>
+
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1905</div>
+                <div class="timeline-content">
+                    <h3>La Ferme-École du Docteur Decroly</h3>
+                    <p>Le site trouve son origine grâce au célère Docteur Decroly qui choisit Waterloo pour y développer une ferme-école novatrice basée sur la pédagogie active et le contact avec la nature.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">1912</div>
+                <div class="timeline-content">
+                    <h3>Architecture "Cité-Jardin"</h3>
+                    <p>Les architectes Bodson et Clément conçoivent les bâtiments collectifs et logements selon le style anglais "Arts and Crafts", créant une véritable cité-jardin harmonieuse et verdoyante.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2009 - 2016</div>
+                <div class="timeline-content">
+                    <h3>Naissance du Projet Intergénérationnel</h3>
+                    <p>Après le départ de l'école en 2008, le site est entièrement réhabilité pour accueillir le premier projet d'habitat intergénérationnel de Belgique de cette envergure. Les premiers habitants s'y installent en 2016.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION CONCEPT & ÉCOLOGIE -->
+    <section style="background-color: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <h2 class="section-title">Nos Engagements & Valeurs</h2>
+        <p class="section-subtitle">Faciliter la vie quotidienne de nos membres et préserver notre cadre de vie</p>
+
+        <div class="grid-2">
+            
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">🤝</div>
+                    <h2>Le Concept Intergénérationnel</h2>
+                </div>
+                <p>Bella Vita fait revivre la solidarité de nos villages d'antan. Le Club contribue activement à la Charte de Vie en animant le quartier au quotidien :</p>
+                <ul class="feature-list">
+                    <li><strong>Entraide locale :</strong> Créer des ponts entre les générations (familles, seniors, enfants).</li>
+                    <li><strong>Équipe dédiée :</strong> Une permanence sur place pour organiser les activités et faciliter le quotidien.</li>
+                    <li><strong>Convivialité :</strong> Des espaces communs chaleureux pour rompre l'isolement.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">🌳</div>
+                    <h2>Un Site Vert & Éco-responsable</h2>
+                </div>
+                <p>L'environnement est profondément intégré dans le domaine de 15 hectares :</p>
+                <ul class="feature-list">
+                    <li><strong>Chaufferie aux pellets :</strong> 85% de la chaleur est produite par du bois émettant quasi zéro CO2.</li>
+                    <li><strong>Parc & Biodiversité :</strong> Arbres remarquables, potager partagé, verger et nichoirs d'oiseaux.</li>
+                    <li><strong>Gestion de l'eau :</strong> Citernes de récupération d'eau de pluie et étang naturel.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Club Bella Vita ASBL</strong> — Allée des Artistes 4 Bte 1, 1410 Waterloo</p>
+        <p style="margin-top:0.5rem; color:#94a3b8;">Permanence du lundi au samedi de 10h à 12h | Tél : 02 318 58 12</p>
+        <p style="margin-top:1.5rem; font-size:0.9rem; color:#64748b;">&copy; 2026 Club Bella Vita. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
