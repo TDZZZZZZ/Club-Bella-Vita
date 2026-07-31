@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Bella Vita ASBL — Waterloo</title>
+    <title>Programme des Activités — Club Bella Vita ASBL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,7 +60,6 @@
         }
 
         .logo-img { height: 55px; width: auto; }
-
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 
         .nav-links a {
@@ -77,72 +76,117 @@
             background: #f0f7f9;
         }
 
-        .hero {
-            background: linear-gradient(rgba(11, 83, 105, 0.82), rgba(7, 56, 71, 0.88)), 
-                        url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1400&q=80') center/cover;
+        .page-header {
+            background: var(--primary-dark);
             color: #ffffff;
-            padding: 5rem 1.5rem;
+            padding: 4rem 1.5rem;
             text-align: center;
         }
 
-        .hero-inner { max-width: 850px; margin: 0 auto; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.2rem; line-height: 1.25; }
-        .hero p { font-size: 1.3rem; font-weight: 400; opacity: 0.95; margin-bottom: 2rem; }
-
-        .btn-main {
-            display: inline-block;
-            background: var(--accent);
-            color: #ffffff;
-            padding: 0.9rem 2rem;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .btn-main:hover { background: #c55a33; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.6rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 750px; margin: 0 auto; }
 
         section { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
 
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
-        .intro-text h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
         }
 
-        .intro-text p { margin-bottom: 1.2rem; color: var(--text-muted); }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
 
-        .highlights-grid {
+        .grid-activities {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        .card {
+        .activity-card {
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .card h3 {
+        .activity-category {
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--primary);
-            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
         }
 
-        .card p { color: var(--text-muted); font-size: 1.05rem; }
+        .activity-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-info {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .registration-box {
+            background: #f0f7f9;
+            border: 1px solid #cce3e8;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .registration-box h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .registration-box p { color: var(--text-muted); }
+
+        .btn-contact {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .btn-contact:hover { background: #c55a33; }
 
         footer {
             background: var(--primary-dark);
@@ -156,8 +200,7 @@
         @media (max-width: 850px) {
             .nav-container { flex-direction: column; gap: 1rem; }
             .nav-links { flex-wrap: wrap; justify-content: center; }
-            .intro-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.1rem; }
+            .registration-box { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -173,48 +216,111 @@
                 <img src="https://static.wixstatic.com/media/cbb3cc_dc3607cddb5c41e08a6626af2a000b97~mv2.png/v1/fill/w_314,h_232,al_c,q_85/CBV_logo.png" alt="Logo Club Bella Vita" class="logo-img">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="presentation.html">Présentation</a></li>
-                <li><a href="activites.html">Activités</a></li>
+                <li><a href="activites.html" class="active">Activités</a></li>
                 <li><a href="evenements.html">Événements</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <div class="hero">
-        <div class="hero-inner">
-            <h1>Bienvenue au Club Bella Vita</h1>
-            <p>Un espace de rencontre, d'activités et d'échange au cœur d’un parc préservé de 15 hectares à Waterloo.</p>
-            <a href="activites.html" class="btn-main">Découvrir le programme des activités</a>
-        </div>
+    <div class="page-header">
+        <h1>Nos Activités Hebdomadaires</h1>
+        <p>Un ensemble de cours et d'ateliers conçus pour le bien-être, la santé et la convivialité.</p>
     </div>
 
     <section>
-        <div class="intro-grid">
-            <div class="intro-text">
-                <h2>Un lieu de vie chaleureux et ouvert à tous</h2>
-                <p>Fondée sur un esprit de convivialité et d'entraide de quartier, notre association propose un cadre unique à Waterloo pour pratiquer des activités sportives adaptées, partager des loisirs et créer du lien entre générations.</p>
-                <p>Que ce soit pour une séance d'aquagym dans notre piscine chauffée, une partie de bridge ou simplement pour partager un moment au club, chacun y trouve sa place à son rythme.</p>
-            </div>
-            <div>
-                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Parc du domaine Bella Vita" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-            </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterCat('all')">Toutes les activités</button>
+            <button class="filter-btn" onclick="filterCat('aqua')">Activités Aquatiques</button>
+            <button class="filter-btn" onclick="filterCat('forme')">Forme & Bien-être</button>
+            <button class="filter-btn" onclick="filterCat('jeux')">Jeux & Société</button>
+            <button class="filter-btn" onclick="filterCat('atelier')">Ateliers & Nature</button>
         </div>
 
-        <div class="highlights-grid">
-            <div class="card">
-                <h3>Activités variées</h3>
-                <p>Plus de 20 rendez-vous hebdomadaires : natation, gym douce, yoga, jeux de société et ateliers culturels.</p>
+        <div class="grid-activities">
+            
+            <div class="activity-card" data-cat="aqua">
+                <div class="activity-category">Activités Aquatiques</div>
+                <h3>Aquagym</h3>
+                <p>Séances de renforcement doux et d'assouplissement dans l'eau chaude de la piscine du domaine. Adapté à tous les âges.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Espace Aquatique Bella Vita
+                </div>
             </div>
-            <div class="card">
-                <h3>Un cadre naturel exceptionnel</h3>
-                <p>Installé au sein du domaine historique du Dr Decroly, bordé par un parc arboré et des espaces de promenade.</p>
+
+            <div class="activity-card" data-cat="aqua">
+                <div class="activity-category">Activités Aquatiques</div>
+                <h3>Natation Libre</h3>
+                <p>Créneaux d'accès réservés aux membres pour nager sereinement et travailler son endurance à son propre rythme.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Espace Aquatique Bella Vita
+                </div>
             </div>
-            <div class="card">
-                <h3>Une communauté active</h3>
-                <p>Des rencontres régulières, des événements de saison et une permanence quotidienne pour vous accueillir.</p>
+
+            <div class="activity-card" data-cat="forme">
+                <div class="activity-category">Forme & Bien-être</div>
+                <h3>Gym Douce & Posture</h3>
+                <p>Exercices au sol et debout axés sur l'équilibre, la souplesse articulaire et la prévention de la santé musculaire.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Salle Polyvalente
+                </div>
             </div>
+
+            <div class="activity-card" data-cat="forme">
+                <div class="activity-category">Forme & Bien-être</div>
+                <h3>Pilates</h3>
+                <p>Travail en profondeur sur les muscles du dos et de la sangle abdominale pour un meilleur maintien au quotidien.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Salle Polyvalente
+                </div>
+            </div>
+
+            <div class="activity-card" data-cat="forme">
+                <div class="activity-category">Forme & Bien-être</div>
+                <h3>Yoga Doux</h3>
+                <p>Enchaînements de postures simples et exercices de respiration pour relâcher les tensions et retrouver la sérénité.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Espace Sérénité
+                </div>
+            </div>
+
+            <div class="activity-card" data-cat="jeux">
+                <div class="activity-category">Jeux & Société</div>
+                <h3>Club de Bridge</h3>
+                <p>Après-midis de jeu conviviales entre amateurs et joueurs réguliers. Organisation de parties et conseils.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Espace Club
+                </div>
+            </div>
+
+            <div class="activity-card" data-cat="jeux">
+                <div class="activity-category">Jeux & Société</div>
+                <h3>Scrabble & Échecs</h3>
+                <p>Rencontres informelles autour de jeux de réflexion et de lettres. Un moment partagé autour d'un thé ou café.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Espace Club
+                </div>
+            </div>
+
+            <div class="activity-card" data-cat="atelier">
+                <div class="activity-category">Ateliers & Nature</div>
+                <h3>Potager & Verger Partagé</h3>
+                <p>Ateliers de jardinage au fil des saisons dans le parc du domaine : entretien des bacs, verger et échanges de graines.</p>
+                <div class="activity-info">
+                    <strong>Lieu :</strong> Parc du Domaine (15 ha)
+                </div>
+            </div>
+
+        </div>
+
+        <div class="registration-box">
+            <div>
+                <h3>Modalités d'accès et inscriptions</h3>
+                <p>Les activités sont réservées aux membres à jour de cotisation. N'hésitez pas à nous contacter ou venir nous rencontrer lors de la permanence du matin pour valider votre inscription.</p>
+            </div>
+            <a href="contact.html" class="btn-contact">Contacter l'accueil</a>
         </div>
     </section>
 
@@ -223,6 +329,21 @@
         <p style="margin-top: 0.4rem;">Secrétariat ouvert du lundi au samedi de 10h à 12h | Téléphone : 02 318 58 12</p>
         <p style="margin-top: 1.2rem; font-size: 0.9rem; opacity: 0.6;">&copy; 2026 Club Bella Vita ASBL. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        function filterCat(category) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('.activity-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
