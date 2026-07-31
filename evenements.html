@@ -3,306 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Événements & Agenda | Club Bella Vita ASBL - Waterloo</title>
+    <title>Agenda & Événements — Club Bella Vita ASBL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- DESIGN SYSTEM ACCESSIBLE & MODERNE --- */
         :root {
-            --primary: #0b5369;       /* Bleu canard Bella Vita */
+            --primary: #0b5369;
             --primary-dark: #073847;
-            --secondary: #d96b43;     /* Terracotta pour inciter à l'action */
-            --secondary-hover: #bd5530;
-            --bg-light: #f8fafc;
+            --accent: #d96b43;
+            --bg-light: #f9fbfe;
             --card-bg: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #475569;
-            --accent-soft: #eef7f9;
-            --border-color: #e2e8f0;
-            --radius: 12px;
-            --shadow: 0 10px 25px -5px rgba(11, 83, 105, 0.08);
-            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-dark: #192434;
+            --text-muted: #526071;
+            --border: #e2e8f0;
+            --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: var(--font-main);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--bg-light);
-            scroll-behavior: smooth;
         }
 
-        /* --- BANDEAU SUPÉRIEUR --- */
         .top-bar {
             background-color: var(--primary-dark);
-            color: white;
-            padding: 0.75rem 1rem;
+            color: rgba(255,255,255,0.9);
+            padding: 0.6rem 1rem;
             text-align: center;
-            font-size: 1.05rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
-        .top-bar a {
-            color: white;
-            text-decoration: underline;
-            margin: 0 0.5rem;
-        }
+        .top-bar a { color: #ffffff; text-decoration: underline; font-weight: 600; }
 
-        /* --- NAVIGATION --- */
         header {
-            background: white;
+            background: #ffffff;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--border);
         }
 
         .nav-container {
-            max-width: 1250px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0.8rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.2rem;
-            list-style: none;
-        }
+        .logo-img { height: 55px; width: auto; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 700;
-            padding: 0.5rem 0.9rem;
-            border-radius: 8px;
-            transition: all 0.2s ease;
+            font-weight: 600;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
 
         .nav-links a.active, .nav-links a:hover {
-            background-color: var(--accent-soft);
             color: var(--primary);
+            background: #f0f7f9;
         }
 
-        .btn-call-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.7rem 1.3rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* --- PAGE BANNER --- */
-        .page-banner {
-            background: linear-gradient(rgba(11, 83, 105, 0.88), rgba(7, 56, 71, 0.9)), 
-                        url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            color: white;
-            padding: 4.5rem 1.5rem;
-            text-align: center;
-        }
-
-        .page-banner h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-        }
-
-        .page-banner p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* --- SECTIONS --- */
-        section {
-            max-width: 1000px;
-            margin: 0 auto;
+        .page-header {
+            background: var(--primary-dark);
+            color: #ffffff;
             padding: 4rem 1.5rem;
-        }
-
-        .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 3.5rem;
-        }
+        .page-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.6rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 750px; margin: 0 auto; }
 
-        /* --- CARTES ÉVÉNEMENTS --- */
-        .event-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+        section { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem; }
 
         .event-card {
-            background: white;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            border-left: 8px solid var(--secondary);
-            box-shadow: var(--shadow);
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
             padding: 2rem;
+            margin-bottom: 2rem;
             display: grid;
-            grid-template-columns: 140px 1fr;
+            grid-template-columns: 130px 1fr;
             gap: 2rem;
             align-items: center;
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .event-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -10px rgba(11, 83, 105, 0.12);
-        }
-
-        .event-date-box {
-            background: var(--accent-soft);
-            border-radius: var(--radius);
+        .event-date {
+            background: #f0f7f9;
+            border-radius: 6px;
             padding: 1rem;
             text-align: center;
-            border: 1px solid #cce7ed;
+            border: 1px solid #cce3e8;
         }
 
-        .event-month {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .event-day { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+        .event-month { font-size: 0.9rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-top: 0.3rem; }
 
-        .event-day {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            margin: 0.2rem 0;
-        }
+        .event-content h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .event-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1rem; }
 
-        .event-time {
+        .event-meta {
             font-size: 0.95rem;
-            color: var(--text-muted);
             font-weight: 600;
-        }
-
-        .event-details h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-        }
-
-        .event-details p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .event-tags {
+            color: var(--text-dark);
             display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        .event-badge {
-            background: #f1f5f9;
-            color: var(--primary-dark);
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-        }
-
-        .event-badge.open {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .btn-event-sub {
-            color: var(--secondary);
-            font-weight: bold;
-            text-decoration: none;
-            margin-left: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .btn-event-sub:hover {
-            text-decoration: underline;
-        }
-
-        /* --- BLOC INFO INSCRIPTION --- */
-        .notice-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            border: 2px dashed var(--primary);
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .notice-card h3 {
-            color: var(--primary);
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .notice-card p {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        /* --- FOOTER --- */
         footer {
-            background-color: var(--primary-dark);
-            color: white;
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.8);
             padding: 3rem 1.5rem;
             text-align: center;
-            font-size: 1.05rem;
             margin-top: 4rem;
+            font-size: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; }
+        @media (max-width: 700px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
             .nav-links { flex-wrap: wrap; justify-content: center; }
-            .event-card { grid-template-columns: 1fr; gap: 1.2rem; }
-            .event-date-box { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1.5rem; }
-            .event-day { font-size: 1.8rem; }
-            .btn-event-sub { margin-left: 0; width: 100%; margin-top: 0.5rem; }
+            .event-card { grid-template-columns: 1fr; gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRE DE CONTACT SUPÉRIEURE -->
     <div class="top-bar">
-        📍 Permanence téléphonique (10h-12h) : <a href="tel:023185812">02 318 58 12</a> | 📧 <a href="mailto:info@clubbellavita.be">info@clubbellavita.be</a>
+        Permanence téléphonique du lundi au samedi (10h – 12h) : <a href="tel:023185812">02 318 58 12</a>
     </div>
 
-    <!-- HEADER PRINCIPAL -->
     <header>
         <div class="nav-container">
             <a href="index.html">
@@ -311,114 +153,86 @@
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="presentation.html">Présentation</a></li>
-                <li><a href="activites.html">Nos Activités</a></li>
+                <li><a href="activites.html">Activités</a></li>
                 <li><a href="evenements.html" class="active">Événements</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <a href="tel:023185812" class="btn-call-header"> Appeler</a>
         </div>
     </header>
 
-    <!-- BANNIÈRE DE LA PAGE -->
-    <section class="page-banner">
-        <h1>Agenda & Événements à venir</h1>
-        <p>Découvrez nos rencontres culturelles, conférences, tournois et moments festifs au Club Bella Vita.</p>
-    </section>
+    <div class="page-header">
+        <h1>Événements et Rencontres</h1>
+        <p>Retrouvez l'agenda des conférences, célébrations de saison et sorties du club.</p>
+    </div>
 
-    <!-- LISTE DES ÉVÉNEMENTS -->
     <section>
-        <h2 class="section-title">Les Rendez-vous du Club</h2>
-        <p class="section-subtitle">Retrouvez toutes les dates à ne pas manquer pour ce trimestre</p>
-
-        <div class="event-list">
-
-            <!-- Événement 1 -->
-            <div class="event-card">
-                <div class="event-date-box">
-                    <div class="event-month">OCTOBRE</div>
-                    <div class="event-day">15</div>
-                    <div class="event-time">14h30 - 17h00</div>
-                </div>
-                <div class="event-details">
-                    <h3>Conférence & Histoire : Decroly et Waterloo</h3>
-                    <p>Une présentation rétrospective fascinante sur le créateur de la ferme-école en 1905, l'architecture des cités-jardins et l’évolution du domaine jusqu’à nos jours. Suivie d’un café convivial.</p>
-                    <div class="event-tags">
-                        <span class="event-badge">🏛️ Patrimoine & Culture</span>
-                        <span class="event-badge open">Inscriptions ouvertes</span>
-                        <a href="contact.html" class="btn-event-sub">Réserver sa place →</a>
-                    </div>
+        
+        <div class="event-card">
+            <div class="event-date">
+                <div class="event-day">15</div>
+                <div class="event-month">Octobre</div>
+            </div>
+            <div class="event-content">
+                <h3>Conférence : L'histoire de Decroly et du Domaine</h3>
+                <p>Présentation historique et rétrospective sur la création de la ferme-école en 1905 et son évolution vers le quartier d'aujourd'hui. Échange suivi d'une collation.</p>
+                <div class="event-meta">
+                    <span>Horaire : 14h30 – 16h30</span>
+                    <span>Lieu : Salle principale</span>
                 </div>
             </div>
-
-            <!-- Événement 2 -->
-            <div class="event-card">
-                <div class="event-date-box">
-                    <div class="event-month">JEUDI</div>
-                    <div class="event-day">HEBDO</div>
-                    <div class="event-time">14h00 - 17h30</div>
-                </div>
-                <div class="event-details">
-                    <h3>Grand Tournoi de Bridge d’Automne</h3>
-                    <p>Rencontre amicale et stimulante ouverte à tous nos membres bridgesurs. Un après-midi rythmé par le jeu, la bonne humeur et la remise de petits prix de convivialité.</p>
-                    <div class="event-tags">
-                        <span class="event-badge">🃏 Jeu & Bridge</span>
-                        <span class="event-badge">Récurrent</span>
-                        <a href="contact.html" class="btn-event-sub">Plus d'infos →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Événement 3 -->
-            <div class="event-card">
-                <div class="event-date-box">
-                    <div class="event-month">NOVEMBRE</div>
-                    <div class="event-day">08</div>
-                    <div class="event-time">10h00 - 12h30</div>
-                </div>
-                <div class="event-details">
-                    <h3>Atelier Botanique & Préparation du Verger</h3>
-                    <p>Rendez-vous au potager partagé pour préparer les plantations d'hiver et échanger des conseils de jardinage écologique dans les 15 hectares du domaine.</p>
-                    <div class="event-tags">
-                        <span class="event-badge">🌱 Nature & Parc</span>
-                        <span class="event-badge open">Accès libre membres</span>
-                        <a href="contact.html" class="btn-event-sub">Prendre contact →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Événement 4 -->
-            <div class="event-card">
-                <div class="event-date-box">
-                    <div class="event-month">DÉCEMBRE</div>
-                    <div class="event-day">12</div>
-                    <div class="event-time">15h00 - 18h30</div>
-                </div>
-                <div class="event-details">
-                    <h3>Goûter de Fin d'Année du Club Bella Vita</h3>
-                    <p>Le grand rassemblement chaleureux de l'ASBL pour fêter la fin d'année ensemble. Vin chaud, pâtisseries, animation musicale et rétrospective photo de l'année.</p>
-                    <div class="event-tags">
-                        <span class="event-badge">🎉 Fête & Convivialité</span>
-                        <span class="event-badge open">Inscription obligatoire</span>
-                        <a href="contact.html" class="btn-event-sub">S'inscrire auprès de l'accueil →</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- REMARQUE PRATIQUE POUR S'INSCRIRE -->
-        <div class="notice-card">
-            <h3>Vous souhaitez participer à l'un de ces événements ?</h3>
-            <p>Pour assurer le confort de tous, certains événements nécessitent une inscription préalable. Contactez notre secrétariat par téléphone ou venez nous voir pendant la permanence du matin.</p>
-            <a href="tel:023185812" style="background: var(--secondary); color: white; padding: 0.8rem 1.6rem; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">📞 Appeler le 02 318 58 12</a>
+        <div class="event-card">
+            <div class="event-date">
+                <div class="event-day">Jeudi</div>
+                <div class="event-month">Hebdo</div>
+            </div>
+            <div class="event-content">
+                <h3>Tournoi Amical de Bridge</h3>
+                <p>Rencontre hebdomadaire réservée aux amateurs et passionnés de bridge. Inscription possible auprès de la section jeux.</p>
+                <div class="event-meta">
+                    <span>Horaire : 14h00 – 17h30</span>
+                    <span>Lieu : Espace Club</span>
+                </div>
+            </div>
         </div>
+
+        <div class="event-card">
+            <div class="event-date">
+                <div class="event-day">08</div>
+                <div class="event-month">Novembre</div>
+            </div>
+            <div class="event-content">
+                <h3>Atelier d'Automne au Potager</h3>
+                <p>Rendez-vous sur le verger pour préparer le terrain avant l'hiver, partager des plants et échanger des conseils entre résidents.</p>
+                <div class="event-meta">
+                    <span>Horaire : 10h00 – 12h00</span>
+                    <span>Lieu : Le Potager du Domaine</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">
+                <div class="event-day">12</div>
+                <div class="event-month">Décembre</div>
+            </div>
+            <div class="event-content">
+                <h3>Goûter Chaleureux de Fin d'Année</h3>
+                <p>Rassemblement annuel des membres pour célébrer la fin d'année autour d'une collation conviviale et d'un moment musical.</p>
+                <div class="event-meta">
+                    <span>Horaire : 15h00 – 18h00</span>
+                    <span>Lieu : Grande Salle</span>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p><strong>Club Bella Vita ASBL</strong> — Allée des Artistes 4 Bte 1, 1410 Waterloo</p>
-        <p style="margin-top:0.5rem; color:#94a3b8;">Permanence du lundi au samedi de 10h à 12h | Tél : 02 318 58 12</p>
-        <p style="margin-top:1.5rem; font-size:0.9rem; color:#64748b;">&copy; 2026 Club Bella Vita. Tous droits réservés.</p>
+        <p style="margin-top: 0.4rem;">Secrétariat ouvert du lundi au samedi de 10h à 12h | Téléphone : 02 318 58 12</p>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; opacity: 0.6;">&copy; 2026 Club Bella Vita ASBL. Tous droits réservés.</p>
     </footer>
 
 </body>
